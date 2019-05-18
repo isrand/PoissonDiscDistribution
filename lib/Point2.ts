@@ -9,6 +9,7 @@ export class Point2 {
 
   /**
    *Returns the distance between this point and the given one.
+   @param point Point to check the distance to.
    */
   public Distance(point: Point2): number {
     const distanceVector: Vector2 = new Vector2(point.x - this.x, point.y - this.y);
@@ -17,7 +18,7 @@ export class Point2 {
   }
 
   /**
-  *Generates a random point using this point as the origin of coordinates.
+  *Generates a random point inside an area using this point as the origin of coordinates.
   @param radius Radius of the circle around the origin of coordinates to be used as the area.
   */
   public RandomPointInsideCircle(radius: number): Point2 {
@@ -49,6 +50,8 @@ export class Point2 {
   public GenerateRandomPointInsideAnnulus(minRadius: number, maxRadius: number): Point2 {
     let randomPoint: Point2 = this.RandomPointInsideCircle(maxRadius);
     let isPointValid: boolean = Point2.IsPointInsideCircle(randomPoint, this, maxRadius) && !Point2.IsPointInsideCircle(randomPoint, this, minRadius);
+
+    // If randomPoint is valid on the first try, these lines will appear as uncovered in the unit test coverage report.
     while (!isPointValid) {
       randomPoint = this.RandomPointInsideCircle(maxRadius);
       isPointValid = Point2.IsPointInsideCircle(randomPoint, this, maxRadius) && !Point2.IsPointInsideCircle(randomPoint, this, minRadius);

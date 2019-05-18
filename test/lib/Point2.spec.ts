@@ -1,4 +1,4 @@
-import { Point2 } from '../lib/Point2';
+import { Point2 } from '../../lib/Point2';
 
 test('Instantiation of a new point is correct', () => {
   const point: Point2 = new Point2(2, 4);
