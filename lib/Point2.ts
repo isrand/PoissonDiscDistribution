@@ -22,7 +22,7 @@ export class Point2 {
   *Generates a random point inside an area using this point as the origin of coordinates.
   @param radius Radius of the circle around the origin of coordinates to be used as the area.
   */
-  public RandomPointInsideCircle(radius: number): Point2 {
+  public GenerateRandomPointInsideCircle(radius: number): Point2 {
 
     const a: number = Math.random() * 2 * Math.PI;
     const R: number = radius * Math.sqrt(Math.random());
@@ -64,10 +64,10 @@ export class Point2 {
   @param maxRadius Radius of the outer circle of the annulus.
   */
   public GenerateRandomPointInsideAnnulus(minRadius: number, maxRadius: number): Point2 {
-    const randomPoint: Point2 = this.RandomPointInsideCircle(maxRadius);
+    const randomPoint: Point2 = this.GenerateRandomPointInsideCircle(maxRadius);
     const isPointValid: boolean = Point2.IsPointInsideAnnulus(randomPoint, this, minRadius, maxRadius);
 
-    // If randomPoint is valid on the first try, this line will appear as uncovered in the unit test coverage report.
+    // Due to the non-deterministic of the random point generation the following line will cause a branch in the unit testing.
     return (isPointValid) ? randomPoint : this.GenerateRandomPointInsideAnnulus(minRadius, maxRadius);
   }
 }
