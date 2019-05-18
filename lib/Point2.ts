@@ -5,7 +5,8 @@ import { Vector2 } from './Vector2';
 */
 export class Point2 {
 
-  public constructor(/**First component of the point.*/public x: number, /**Second component of the point.*/public y: number) {}
+  public constructor(/**First component of the point.*/public x: number,
+                     /**Second component of the point.*/public y: number) {}
 
   /**
    *Returns the distance between this point and the given one.
@@ -49,12 +50,14 @@ export class Point2 {
   */
   public GenerateRandomPointInsideAnnulus(minRadius: number, maxRadius: number): Point2 {
     let randomPoint: Point2 = this.RandomPointInsideCircle(maxRadius);
-    let isPointValid: boolean = Point2.IsPointInsideCircle(randomPoint, this, maxRadius) && !Point2.IsPointInsideCircle(randomPoint, this, minRadius);
+    let isPointValid: boolean = Point2.IsPointInsideCircle(randomPoint, this, maxRadius) &&
+                                !Point2.IsPointInsideCircle(randomPoint, this, minRadius);
 
     // If randomPoint is valid on the first try, these lines will appear as uncovered in the unit test coverage report.
     while (!isPointValid) {
       randomPoint = this.RandomPointInsideCircle(maxRadius);
-      isPointValid = Point2.IsPointInsideCircle(randomPoint, this, maxRadius) && !Point2.IsPointInsideCircle(randomPoint, this, minRadius);
+      isPointValid = Point2.IsPointInsideCircle(randomPoint, this, maxRadius) &&
+                     !Point2.IsPointInsideCircle(randomPoint, this, minRadius);
     }
 
     return randomPoint;

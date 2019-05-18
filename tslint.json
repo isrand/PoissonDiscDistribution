@@ -13,7 +13,7 @@
     "eofline": true,
     "forin": true,
     "label-position": true,
-    "max-line-length": [true, 400],
+    "max-line-length": [true, 120],
     "no-arg": true,
     "no-bitwise": true,
     "no-console": false,

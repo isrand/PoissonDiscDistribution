@@ -9,7 +9,8 @@ export class Vector2 {
    */
   public sqMagnitude: number;
 
-  public constructor(/**First component of the vector */public x: number, /**Second component of the vector */public y: number) {
+  public constructor(/**First component of the vector */public x: number,
+                     /**Second component of the vector */public y: number) {
     this.magnitude = this.Magnitude();
     this.sqMagnitude = Math.pow(this.Magnitude(), 2);
   }
