@@ -1,8 +1,11 @@
 import { Vector2 } from './Vector2';
 
+/**
+*Point object in 2D coordinates `(X, Y).`
+*/
 export class Point2 {
 
-  public constructor(/**First component of the point */public x: number, /**Second component of the point */public y: number) {}
+  public constructor(/**First component of the point.*/public x: number, /**Second component of the point.*/public y: number) {}
 
   /**
    *Returns the distance between this point and the given one.
@@ -14,7 +17,8 @@ export class Point2 {
   }
 
   /**
-  *Generates a random point inside of the radius provided, using this point as the origin of coordinates.
+  *Generates a random point using this point as the origin of coordinates.
+  @param radius Radius of the circle around the origin of coordinates to be used as the area.
   */
   public RandomPointInsideCircle(radius: number): Point2 {
 
@@ -28,13 +32,21 @@ export class Point2 {
   }
 
   /**
-  * Checks whether or not a point is inside another's point circle, given by its radus and using the second point as the origin of coordinates.
+  *Checks whether or not a point is inside another's point circle.
+  @param point Point to check.
+  @param coordinatesOrigin Original point that has the area around it.
+  @param radius Radius of the area around the original point.
   */
   public static IsPointInsideCircle(point: Point2 , coordinatesOrigin: Point2, radius: number): boolean {
     return point.Distance(coordinatesOrigin) <= radius;
   }
 
-  public RandomPointInsideAnnulus(minRadius: number, maxRadius: number): Point2 {
+  /**
+  *Returns a new random point inside the given annulus.
+  @param minRadius Radius of the inner circle of the annulus.
+  @param maxRadius Radius of the outer circle of the annulus.
+  */
+  public GenerateRandomPointInsideAnnulus(minRadius: number, maxRadius: number): Point2 {
     let randomPoint: Point2 = this.RandomPointInsideCircle(maxRadius);
     let isPointValid: boolean = Point2.IsPointInsideCircle(randomPoint, this, maxRadius) && !Point2.IsPointInsideCircle(randomPoint, this, minRadius);
     while (!isPointValid) {
