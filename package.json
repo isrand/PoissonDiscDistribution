@@ -1,0 +1,24 @@
+{
+  "name": "PoissonDiscDistribution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint -c tslint.json --project ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsraelNebot/PoissonDiscDistribution.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsraelNebot/PoissonDiscDistribution/issues"
+  },
+  "homepage": "https://github.com/IsraelNebot/PoissonDiscDistribution#readme"
+}
