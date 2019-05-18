@@ -5,8 +5,19 @@ import { Vector2 } from './Vector2';
 */
 export class Point2 {
 
-  public constructor(/**First component of the point.*/public x: number,
-                     /**Second component of the point.*/public y: number) {}
+  /**
+  *First component of the point.
+  */
+  public x: number;
+  /**
+  *Second component of the point.
+  */
+  public y: number;
+
+  public constructor(x: number, y: number) {
+    this.x = x;
+    this.y = y;
+  }
 
   /**
    *Returns the distance between this point and the given one.
@@ -39,7 +50,7 @@ export class Point2 {
   @param coordinatesOrigin Original point that has the area around it.
   @param radius Radius of the area around the original point.
   */
-  public static IsPointInsideCircle(point: Point2 , coordinatesOrigin: Point2, radius: number): boolean {
+  public static IsPointInsideCircle(point: Point2, coordinatesOrigin: Point2, radius: number): boolean {
     return point.Distance(coordinatesOrigin) <= radius;
   }
 
@@ -50,10 +61,7 @@ export class Point2 {
   @param minRadius Radius of the inner circle of the annulus.
   @param maxRadius Radius of the outer circle of the annulus.
   */
- public static IsPointInsideAnnulus(point: Point2,
-                                    coordinatesOrigin: Point2,
-                                    minRadius: number,
-                                    maxRadius: number): boolean {
+ public static IsPointInsideAnnulus(point: Point2, coordinatesOrigin: Point2, minRadius: number, maxRadius: number): boolean {
   return !this.IsPointInsideCircle(point, coordinatesOrigin, minRadius) &&
           this.IsPointInsideCircle(point, coordinatesOrigin, maxRadius);
 }
@@ -67,7 +75,8 @@ export class Point2 {
     const randomPoint: Point2 = this.GenerateRandomPointInsideCircle(maxRadius);
     const isPointValid: boolean = Point2.IsPointInsideAnnulus(randomPoint, this, minRadius, maxRadius);
 
-    // Due to the non-deterministic nature of the random point generation the following line will cause a branch in the unit testing.
+    // Due to the non-deterministic nature of the random point generation
+    // the following line will cause a branch in the unit testing.
     return (isPointValid) ? randomPoint : this.GenerateRandomPointInsideAnnulus(minRadius, maxRadius);
   }
 }
