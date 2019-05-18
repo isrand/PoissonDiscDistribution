@@ -67,7 +67,7 @@ export class Point2 {
     const randomPoint: Point2 = this.GenerateRandomPointInsideCircle(maxRadius);
     const isPointValid: boolean = Point2.IsPointInsideAnnulus(randomPoint, this, minRadius, maxRadius);
 
-    // Due to the non-deterministic of the random point generation the following line will cause a branch in the unit testing.
+    // Due to the non-deterministic nature of the random point generation the following line will cause a branch in the unit testing.
     return (isPointValid) ? randomPoint : this.GenerateRandomPointInsideAnnulus(minRadius, maxRadius);
   }
 }
