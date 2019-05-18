@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --config jest.config.json && rm -rf jest_0",
+    "test:cov": "jest --config jest.config.json --coverage && rm -rf jest_0",
     "lint": "tslint -c tslint.json --project ."
   },
   "repository": {
@@ -20,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/IsraelNebot/PoissonDiscDistribution/issues"
   },
-  "homepage": "https://github.com/IsraelNebot/PoissonDiscDistribution#readme"
+  "homepage": "https://github.com/IsraelNebot/PoissonDiscDistribution#readme",
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2"
+  }
 }
