@@ -7,21 +7,11 @@
       "./node_modules/@types/node/index.d.ts"
     ]
   },
-  "rulesDirectory": [
-    "node_modules/tslint-eslint-rules/dist/rules",
-    "node_modules/tslint-microsoft-contrib",
-    "node_modules/tslint-sonarts"
-  ],
   "rules": {
     "class-name": true,
     "curly": true,
     "eofline": true,
     "forin": true,
-    "ter-indent": [true, 2,
-      {
-        "SwitchCase": true
-      }
-    ],
     "label-position": true,
     "linebreak-style": [true, "LF"],
     "max-line-length": [true, 400],
@@ -46,8 +36,6 @@
     "no-reference-import": true,
     "only-arrow-functions": false,
     "new-parens": true,
-    "no-multi-spaces": true,
-    "brace-style": [true, "1tbs"],
     "one-line": [
       true,
       "check-open-brace",
@@ -132,10 +120,6 @@
     "prefer-method-signature": true,
     "space-before-function-paren": [true, {"anonymous": "never", "named": "never", "asyncArrow": "always", "method": "never", "constructor": "never"}],
     "space-within-parens": 0,
-    "no-empty-line-after-opening-brace": true,
-    "no-unnecessary-field-initialization": true,
-    "no-unnecessary-local-variable": true,
-    "promise-must-complete": true,
     "export-name": false
   },
   "compilerOptions": {

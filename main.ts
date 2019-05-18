@@ -8,7 +8,7 @@ import { Point2 } from './lib/Point2';
   // Add newly generated point to list of actives
 
 export function PoissonDiscDistribution(areaWidth: number, areaHeight: number, radius: number, attempts: number): Point2[] {
-  let finalPoints: Point2[] = [];  
+  const finalPoints: Point2[] = [];
 
   return finalPoints;
 }
