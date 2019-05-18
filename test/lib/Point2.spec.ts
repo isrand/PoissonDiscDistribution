@@ -23,6 +23,5 @@ test('Creation of a new point inside annulus returns a valid new point', () => {
   expect(pointInsideAnnulus).toBeInstanceOf(Point2);
 
   // Point is inside annulus (outside inner circle, inside outer circle).
-  expect(Point2.IsPointInsideCircle(pointInsideAnnulus, pointA, 2)).toEqual(false);
-  expect(Point2.IsPointInsideCircle(pointInsideAnnulus, pointA, 4)).toEqual(true);
+  expect(Point2.IsPointInsideAnnulus(pointInsideAnnulus, pointA, 2, 4)).toBeTruthy();
 });

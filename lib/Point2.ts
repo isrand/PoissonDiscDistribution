@@ -1,4 +1,5 @@
 import { Vector2 } from './Vector2';
+import generate from '@babel/generator';
 
 /**
 *Point object in 2D coordinates `(X, Y).`
@@ -44,22 +45,27 @@ export class Point2 {
   }
 
   /**
+  *Checks whether or not a point is inside another's point annulus.
+  @param point Point to check.
+  @param coordinatesOrigin Original point that has the annulus around it.
+  @param minRadius Radius of the inner circle of the annulus.
+  @param maxRadius Radius of the outer circle of the annulus.
+  */
+ public static IsPointInsideAnnulus(point: Point2, coordinatesOrigin: Point2, minRadius: number, maxRadius: number): boolean {
+  return !this.IsPointInsideCircle(point, coordinatesOrigin, minRadius) &&
+          this.IsPointInsideCircle(point, coordinatesOrigin, maxRadius);
+}
+
+  /**
   *Returns a new random point inside the given annulus.
   @param minRadius Radius of the inner circle of the annulus.
   @param maxRadius Radius of the outer circle of the annulus.
   */
   public GenerateRandomPointInsideAnnulus(minRadius: number, maxRadius: number): Point2 {
     let randomPoint: Point2 = this.RandomPointInsideCircle(maxRadius);
-    let isPointValid: boolean = Point2.IsPointInsideCircle(randomPoint, this, maxRadius) &&
-                                !Point2.IsPointInsideCircle(randomPoint, this, minRadius);
+    let isPointValid: boolean = Point2.IsPointInsideAnnulus(randomPoint, this, minRadius, maxRadius);
 
-    // If randomPoint is valid on the first try, these lines will appear as uncovered in the unit test coverage report.
-    while (!isPointValid) {
-      randomPoint = this.RandomPointInsideCircle(maxRadius);
-      isPointValid = Point2.IsPointInsideCircle(randomPoint, this, maxRadius) &&
-                     !Point2.IsPointInsideCircle(randomPoint, this, minRadius);
-    }
-
-    return randomPoint;
+    // If randomPoint is valid on the first try, this line will appear as uncovered in the unit test coverage report.
+    return (isPointValid) ? randomPoint : this.GenerateRandomPointInsideAnnulus(minRadius, maxRadius);
   }
 }
