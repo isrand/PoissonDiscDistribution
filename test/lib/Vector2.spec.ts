@@ -1,4 +1,4 @@
-import { Vector2 } from '../../lib/Vector2';
+import { Vector2 } from '../../src/lib/Vector2';
 
 test('Instantiation of a new vector is correct', () => {
   const vector: Vector2 = new Vector2(2, 4);

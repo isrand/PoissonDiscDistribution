@@ -7,9 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest --config jest.config.json && rm -rf jest_0",
-    "test:cov": "jest --config jest.config.json --coverage && rm -rf jest_0",
-    "lint": "tslint -c tslint.json --project ."
+    "test": "jest --config jest.config.json; rm -rf jest_0",
+    "test:cov": "jest --config jest.config.json --coverage; rm -rf jest_0",
+    "lint": "tslint -c tslint.json --project . 2>/dev/null"
   },
   "repository": {
     "type": "git",

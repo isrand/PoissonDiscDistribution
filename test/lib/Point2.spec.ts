@@ -1,4 +1,5 @@
-import { Point2 } from '../../lib/Point2';
+import { Point2 } from '../../src/lib/Point2';
+import { Area2 } from '../../src/lib/Area2';
 
 test('Instantiation of a new point is correct', () => {
   const point: Point2 = new Point2(2, 4);
@@ -26,6 +27,15 @@ describe('New random point inside of an annulus ', () => {
   });
 
   test('is confirmed to be inside of the annulus', () => {
-    expect(Point2.IsPointInsideAnnulus(pointInsideAnnulus, pointA, minRadius, maxRadius)).toBeTruthy();
+    expect(pointInsideAnnulus.IsInsideAnnulus(pointA, minRadius, maxRadius)).toBeTruthy();
   });
+});
+
+test('A point is contained inside of an area', () => {
+  const pointA: Point2 = new Point2(20, 40);
+  const area: Area2 = new Area2(40, 40, 10, 10);
+  const area2: Area2 = new Area2(5, 5, 10, 10);
+
+  expect(pointA.IsInsideOfArea(area)).toBeTruthy();
+  expect(pointA.IsInsideOfArea(area2)).toBeFalsy();
 });
