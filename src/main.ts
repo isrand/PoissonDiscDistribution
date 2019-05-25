@@ -11,10 +11,10 @@ export class PoissonDiscDistribution {
   public constructor(area: Area2, k: number) {
     this.area = area;
     this.k = k;
-    this.activeSamples = [area.GenerateRandomPoint2()];
+    this.activeSamples = [area.generateRandomPoint2()];
   }
 
-  public PoissonDiscDistribution(): Point2[] {
+  public poissonDiscDistribution(): Point2[] {
 
     return [];
   }

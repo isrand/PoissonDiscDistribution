@@ -1,4 +1,5 @@
 import { Point2 } from './Point2';
+import { Lerp } from '../utils/Lerp';
 
 export class Area2 {
   public width: number;
@@ -13,10 +14,12 @@ export class Area2 {
     this.centerPositionY = centerPositionY;
   }
 
-  public GenerateRandomPoint2(): Point2 {
+  public generateRandomPoint2(): Point2 {
     // 0 -> centerPositionX - width / 2
     // 1 -> centerPositionX + width / 2
-    const posX: number = Math.random();
+    const randX: number = Math.random();
+    const posX: number = Lerp(0, (this.centerPositionX - this.width / 2), randX, 1, (this.centerPositionX + this.width / 2));
+    console.log(posX);
     const posY: number = Math.random();
 
     return new Point2(posX, posY);

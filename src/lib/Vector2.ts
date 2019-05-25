@@ -17,16 +17,16 @@ export class Vector2 {
   public constructor(x: number, y: number) {
     this.x = x;
     this.y = y;
-    this.magnitude = this.Magnitude();
-    this.sqMagnitude = Math.pow(this.Magnitude(), 2);
+    this.magnitude = this.calculateMagnitude();
+    this.sqMagnitude = Math.pow(this.calculateMagnitude(), 2);
   }
 
-  private Magnitude(): number {
+  private calculateMagnitude(): number {
     return Math.sqrt((Math.pow(this.x, 2) + Math.pow(this.y, 2)));
   }
 
   /** Returns the associated unit vector. */
-  public UnitVector(): Vector2 {
+  public unitVector(): Vector2 {
     return new Vector2(this.x / this.magnitude, this.y / this.magnitude);
   }
 
