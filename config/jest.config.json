@@ -6,7 +6,7 @@
     "node"
   ],
   "roots": [
-    "test/"
+    "../test/"
   ],
   "testRegex": ".spec.ts$",
   "transform": {

@@ -7,10 +7,10 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest --config jest.config.json --verbose; rm -rf jest_0",
-    "test:cov": "jest --config jest.config.json --coverage --verbose; rm -rf jest_0",
-    "build": "npm run lint && npm run test && tsc",
-    "lint": "tslint -c tslint.json --project .",
+    "test": "jest --config ./config/jest.config.json --verbose; rm -rf jest_0",
+    "test:cov": "jest --config ./config/jest.config.json --coverage --verbose; rm -rf jest_0",
+    "build": "npm run lint && npm run test && tsc --p ./config",
+    "lint": "tslint -c ./config/tslint.json --project ./config/",
     "clean": "rm -rf coverage && rm -rf dist"
   },
   "repository": {
