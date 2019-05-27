@@ -25,7 +25,11 @@ export class Vector2 {
     return Math.sqrt((Math.pow(this.x, 2) + Math.pow(this.y, 2)));
   }
 
-  /** Returns the associated unit vector. */
+  /**
+  *Returns the associated unit vector.
+  @public
+  @returns `Vector2` representing the unit vector of this vector.
+  */
   public unitVector(): Vector2 {
     return new Vector2(this.x / this.magnitude, this.y / this.magnitude);
   }

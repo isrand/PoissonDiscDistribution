@@ -1,13 +1,24 @@
 import { Point2 } from './Point2';
-import { lerp } from '../math/Lerp';
 import { randomRange } from '../math/RandomRange';
 
+/** Square area in 2D coordinates `(X, Y).` */
 export class Area2 {
+
+  /** Width of the area. */
   public width: number;
+  /** Height of the area. */
   public height: number;
+  /** Center position of the area in the x axis. */
   public centerPositionX: number;
+  /** Center position of the area in the y axis. */
   public centerPositionY: number;
 
+  /**
+  @param width  Width of the area.
+  @param height Height of the area.
+  @param centerPositionX Center position of the area in the x axis.
+  @param centerPositionY Center position of the area in the y axis.
+  */
   public constructor(width: number, height: number, centerPositionX: number, centerPositionY: number) {
     this.width = width;
     this.height = height;
@@ -15,6 +26,11 @@ export class Area2 {
     this.centerPositionY = centerPositionY;
   }
 
+  /**
+  *Generates a `Point2` of random `(X,Y)` coordinates inside this area.
+  @public
+  @returns {Point2} Random point inside of the area.
+  */
   public generateRandomPoint2(): Point2 {
 
     const modulusX: number = (Math.random() <= 0.5) ? -1 : 1;
