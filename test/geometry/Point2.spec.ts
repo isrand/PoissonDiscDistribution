@@ -21,7 +21,6 @@ describe('New random point inside of an annulus ', () => {
   const minRadius: number = 2;
   const maxRadius: number = 4;
   const pointInsideAnnulus: Point2 = pointA.generateRandomPointInsideAnnulus(minRadius, maxRadius);
-  console.log(pointInsideAnnulus);
 
   test('is instantiated correctly', () => {
     expect(pointInsideAnnulus).toBeInstanceOf(Point2);

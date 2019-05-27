@@ -11,6 +11,5 @@ test('Creation of a random point inside an area is correct', () => {
   const area: Area2 = new Area2(400, 400, 0, 0);
 
   const pointInsideArea: Point2 = area.generateRandomPoint2();
-  // Point is instantiated correctly.
   expect(pointInsideArea.isInsideArea(area)).toEqual(true);
 });
