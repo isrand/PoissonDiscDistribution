@@ -31,15 +31,6 @@ export class Point2 {
   }
 
   /**
-  *Checks whether or not a point is inside a given area.
-  @param area Interface that defines the area.
-  */
-  public isInsideOfArea(area: Area2): boolean {
-    return this.x >= area.centerPositionX - area.width / 2 && this.x <= area.centerPositionX + area.width / 2
-        && this.y >= area.centerPositionY - area.height / 2 && this.x <= area.centerPositionY + area.height / 2;
-  }
-
-  /**
   *Generates a random point inside a circular area using this point as the origin of coordinates.
   @param radius Radius of the circle around the origin of coordinates to be used as the area.
   */
@@ -51,6 +42,15 @@ export class Point2 {
     const y: number = this.y + R * Math.sin(a);
 
     return new Point2(x, y);
+  }
+
+  /**
+  *Checks whether or not a point is inside a given area.
+  @param area Interface that defines the area.
+  */
+  public isInsideArea(area: Area2): boolean {
+    return ((this.x > (area.centerPositionX - area.width)) && (this.x < (area.centerPositionX + area.width)))
+        && ((this.y > (area.centerPositionY - area.height)) && (this.y < (area.centerPositionY + area.height)));
   }
 
   /**

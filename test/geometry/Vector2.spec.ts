@@ -1,4 +1,4 @@
-import { Vector2 } from '../../src/lib/Vector2';
+import { Vector2 } from '../../src/geometry/Vector2';
 
 test('Instantiation of a new vector is correct', () => {
   const vector: Vector2 = new Vector2(2, 4);
@@ -19,6 +19,6 @@ test('Unit vector is calculated correctly', () => {
   const vectorMagnitude: number = vector.magnitude;
   const expectedUnitVector: Vector2 = new Vector2(vector.x / vectorMagnitude, vector.y / vectorMagnitude);
 
-  expect(vector.UnitVector()).toEqual(expectedUnitVector);
+  expect(vector.unitVector()).toEqual(expectedUnitVector);
 
 });

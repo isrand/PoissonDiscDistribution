@@ -5,6 +5,5 @@ export function lerp(x1: number, y1: number, x2: number, x3: number, y3: number)
   const bottomPartResult: number = (x3 - x1);
   const divisionResult: number = topPartResult / bottomPartResult;
   const result: number = divisionResult + y1;
-  console.log(result);
   return result;
 }
