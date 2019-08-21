@@ -7,9 +7,10 @@
     "test": "test"
   },
   "scripts": {
+    "start": "node dist/main.js",
     "test": "jest --config ./config/jest.config.json --verbose; rm -rf jest_0",
     "test:cov": "jest --config ./config/jest.config.json --coverage --verbose; rm -rf jest_0",
-    "build": "npm run lint && npm run test && tsc --p ./config",
+    "build": "rm -rf dist && npm run lint && npm run test && tsc --p ./config",
     "lint": "tslint -c ./config/tslint.json --project ./config/",
     "clean": "rm -rf coverage && rm -rf dist"
   },
@@ -29,10 +30,10 @@
     "typescript": "3.4.5"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.13",
-    "jest": "^24.8.0",
-    "ts-jest": "^24.0.2",
-    "tslint": "^5.16.0",
-    "tslint-config-airbnb": "^5.11.1"
+    "@types/jest": "24.0.13",
+    "jest": "24.8.0",
+    "ts-jest": "24.0.2",
+    "tslint": "5.18.0",
+    "tslint-config-airbnb": "5.11.1"
   }
 }
