@@ -1,48 +1,53 @@
 import { Point2 } from '../../src/geometry/Point2';
 import { Area2 } from '../../src/geometry/Area2';
 
-test('Instantiation of a new point is correct', () => {
-  const point: Point2 = new Point2(2, 4);
+describe('Point2', () => {
+  test('should instantiate correctly', () => {
+    const point: Point2 = new Point2(2, 4);
+  
+    // Point is instantiated correctly.
+    expect(point).toBeInstanceOf(Point2);
+  });
+  
+  test('should calculate the distance between two points correctly', () => {
+    const pointA: Point2 = new Point2(0, 0);
+    const pointB: Point2 = new Point2(4, 4);
+  
+    // Expected result is correct.
+    expect(pointA.distance(pointB)).toBe(Math.sqrt(32));
+  });  
 
-  // Point is instantiated correctly.
-  expect(point).toBeInstanceOf(Point2);
-});
+  test('should instantiate a new point inside its annulus correctly', () => {
+    const pointA: Point2 = new Point2(0, 0);
+    const minRadius: number = 2;
+    const maxRadius: number = 4;
+    let testPasses: boolean = true;
 
-test('Distance between two points is correct', () => {
-  const pointA: Point2 = new Point2(0, 0);
-  const pointB: Point2 = new Point2(4, 4);
+    for(let i = 0; i < 1000; i +=1 ) {
+      const pointInsideAnnulus: Point2 = pointA.generateRandomPointInsideAnnulus(minRadius, maxRadius);
+      testPasses = (pointInsideAnnulus.isInsideAnnulus(pointA, minRadius, maxRadius)) ? true : false;
+      if(!testPasses) break;
+    }
 
-  // Expected result is correct.
-  expect(pointA.distance(pointB)).toBe(Math.sqrt(32));
-});
-
-describe('New random point inside of an annulus ', () => {
-  const pointA: Point2 = new Point2(0, 0);
-  const minRadius: number = 2;
-  const maxRadius: number = 4;
-  const pointInsideAnnulus: Point2 = pointA.generateRandomPointInsideAnnulus(minRadius, maxRadius);
-
-  test('is instantiated correctly', () => {
-    expect(pointInsideAnnulus).toBeInstanceOf(Point2);
+    expect(testPasses).toEqual(true);
+    
   });
 
-  test('is confirmed to be inside of the annulus', () => {
-    expect(pointInsideAnnulus.isInsideAnnulus(pointA, minRadius, maxRadius)).toBeTruthy();
+  
+  test('should determine if it\'s contained inside an area correctly', () => {
+  
+    let testPasses: boolean = true;
+    const area: Area2 = new Area2(40, 40, 10, 10);
+  
+    for (let i: number = 0; i < 50; i += 1) {
+  
+      const pointInsideArea: Point2 = area.generateRandomPoint2();
+      testPasses = (pointInsideArea.isInsideArea(area)) ? true : false;
+      if (!testPasses) break;
+  
+    }
+  
+    expect(testPasses).toEqual(true);
   });
 });
 
-test('A point is contained inside of an area', () => {
-
-  let testPasses: boolean = true;
-  const area: Area2 = new Area2(40, 40, 10, 10);
-
-  for (let i: number = 0; i < 50; i += 1) {
-
-    const pointInsideArea: Point2 = area.generateRandomPoint2();
-    testPasses = (pointInsideArea.isInsideArea(area)) ? true : false;
-    if (!testPasses) break;
-
-  }
-
-  expect(testPasses).toEqual(true);
-});

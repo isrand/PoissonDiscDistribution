@@ -1,7 +1,7 @@
 import { lerp } from '../../src/math/Lerp';
 
-describe('Linear interpolation library ', () => {
-  test('returns a correct result.', () => {
+describe('Lerp', () => {
+  test('shold return a correct result', () => {
 
     const x1: number = 2;
     const x2: number = 2;
