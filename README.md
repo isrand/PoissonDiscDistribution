@@ -4,7 +4,7 @@ A simple implementation of the Poisson Disc Distribution in TypeScript that crea
 
 ### Complexity analysis
 
-This algorithm needs improvement. As of now it runs in O(n<sup>2</sup>) complexity time. This is due to the following:
+As of now, the algorithm runs in O(n<sup>2</sup>) complexity time. This is due to the following:
 
 - Every sample will be considered as active at least once and put in the `activeSamples` list, so the initial `while` loop will run O(n) times.
 - Checking against the other n - 1 samples for distance sums only happens k times at most. This is executed in a total O(n) complexity time
