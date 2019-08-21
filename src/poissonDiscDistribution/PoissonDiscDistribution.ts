@@ -7,37 +7,41 @@ export class PoissonDiscDistribution {
 
   public static generateDistribution(area: Area2, k: number, radius: number): Point2[] {
 
-    const activeSamples: Point2[] = [area.generateRandomPoint2()];
-    const finalSamples: Point2[] = [activeSamples[0]];
+    const firstPoint = area.generateRandomPoint2();
+
+    const activeSamples: Point2[] = [firstPoint];
+    const finalSamples: Point2[] = [firstPoint];
+    let i: number;
 
     while (activeSamples.length > 0) {
-      const randomIndex: number = randomRange(activeSamples.length);
-      const randomSample: Point2 = activeSamples[randomIndex];
-      let tentativeValidSample: boolean = true;
-      let i: number = 0;
+      i = 0;
+      const sample: Point2 = activeSamples.shift() as Point2;
       while (i < k) {
-        const randomSampleInsideAnnulus: Point2 = randomSample.generateRandomPointInsideAnnulus(radius, radius * 2);
-        for (const sample of finalSamples) {
-          if (randomSampleInsideAnnulus.distance(sample) < radius) {
-            tentativeValidSample = false;
-            break;
-          }
-        }
-        if (tentativeValidSample) {
-          if (randomSampleInsideAnnulus.isInsideArea(area)) {
-            finalSamples.push(randomSampleInsideAnnulus);
-            activeSamples.push(randomSampleInsideAnnulus);
+        const newSample: Point2 = sample.generateRandomPointInsideAnnulus(radius, radius * 2);
+        if (newSample.isInsideArea(area)) {
+          const allDistances = this.calculateDistances(newSample, finalSamples, radius);
+          if (allDistances === finalSamples.length) {
+            activeSamples.unshift(newSample);
+            activeSamples.unshift(sample);
+            finalSamples.push(newSample);
             break;
           } else {
-            break;
+            i += 1;
           }
-        } else {
-          i += 1;
         }
       }
-      if (i === k) activeSamples.splice(randomIndex, 1);
     }
 
     return finalSamples;
+  }
+
+  private static calculateDistances(sample: Point2, allSamples: Point2[], radius: number): number {
+    let sum = 0;
+    for (const s of allSamples) {
+      if (sample.distance(s) >= radius) {
+        sum += 1;
+      }
+    }
+    return sum;
   }
 }

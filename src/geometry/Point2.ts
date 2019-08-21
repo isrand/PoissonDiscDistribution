@@ -37,8 +37,8 @@ export class Point2 {
   @returns Boolean indicating the result of the check.
   */
   public isInsideArea(area: Area2): boolean {
-    return ((this.x > (area.centerPositionX - area.width)) && (this.x < (area.centerPositionX + area.width)))
-        && ((this.y > (area.centerPositionY - area.height)) && (this.y < (area.centerPositionY + area.height)));
+    return ((this.x >= (area.centerPositionX - area.width / 2)) && (this.x <= (area.centerPositionX + area.width / 2)))
+        && ((this.y >= (area.centerPositionY - area.height / 2)) && (this.y <= (area.centerPositionY + area.height / 2)));
   }
 
   /**
