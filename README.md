@@ -1,5 +1,7 @@
 # Poisson Disc Distribution
 
+![Poisson Disc Distribution](img/PDD.png)
+
 A simple implementation of the Poisson Disc Distribution in TypeScript that creates a random, uniform distribution of blue noise.
 
 ### Complexity analysis
