@@ -1,5 +1,5 @@
 import { PoissonDiscDistribution } from '../../src/poissonDiscDistribution/PoissonDiscDistribution';
-import { Area2 } from '../../src/geometry/Area2';
+import { Area2 } from '../../src/2D/Area2';
 
 describe('PoissonDiscDistribution', () => {
 

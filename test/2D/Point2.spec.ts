@@ -1,5 +1,5 @@
-import { Point2 } from '../../src/geometry/Point2';
-import { Area2 } from '../../src/geometry/Area2';
+import { Point2 } from '../../src/2D/Point2';
+import { Area2 } from '../../src/2D/Area2';
 
 describe('Point2', () => {
   test('should instantiate correctly', () => {

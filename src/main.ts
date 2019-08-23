@@ -1,5 +1,5 @@
 import { PoissonDiscDistribution } from './poissonDiscDistribution/PoissonDiscDistribution';
-import { Area2 } from './geometry/Area2';
+import { Area2 } from './2D/Area2';
 
 const args = process.argv.slice(2);
 if (args.length !== 6) {

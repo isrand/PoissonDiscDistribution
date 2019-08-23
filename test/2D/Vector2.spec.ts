@@ -1,4 +1,4 @@
-import { Vector2 } from '../../src/geometry/Vector2';
+import { Vector2 } from '../../src/2D/Vector2';
 
 describe('Vector2', () => {
 

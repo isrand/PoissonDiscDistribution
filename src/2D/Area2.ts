@@ -1,5 +1,5 @@
 import { Point2 } from './Point2';
-import { randomRange } from '../math/RandomRange';
+import { randomRange } from '../utils/RandomRange';
 
 /** Square area in 2D coordinates `(X, Y).` */
 export class Area2 {
