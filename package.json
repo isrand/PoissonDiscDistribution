@@ -8,8 +8,8 @@
   },
   "scripts": {
     "start": "npm run build && node dist/main.js",
-    "test": "jest --config ./config/jest.config.json --verbose; rm -rf jest_0",
-    "test:cov": "jest --config ./config/jest.config.json --coverage --verbose; rm -rf jest_0",
+    "test": "jest --config ./config/jest.config.json --verbose;",
+    "test:cov": "jest --config ./config/jest.config.json --coverage --verbose;",
     "build": "rm -rf dist && npm run lint && npm run test && tsc --p ./config",
     "lint": "tslint -c ./config/tslint.json --project ./config/",
     "clean": "rm -rf coverage && rm -rf dist"
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/IsraelNebot/PoissonDiscDistribution#readme",
   "dependencies": {
     "@types/jest": "24.0.13",
+    "@types/node": "12.7.2",
     "typescript": "3.4.5"
   },
   "devDependencies": {
