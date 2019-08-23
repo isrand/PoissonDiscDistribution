@@ -92,7 +92,6 @@ export class Point2 {
     const randomPoint: Point2 = this.generateRandomPointInsideCircle(maxRadius);
     const isPointValid: boolean = randomPoint.isInsideAnnulus(this, minRadius, maxRadius);
 
-    // The non-deterministic nature of the random point generation will cause a branch in tests.
     return (isPointValid)
       ? randomPoint
       : this.generateRandomPointInsideAnnulus(minRadius, maxRadius);
