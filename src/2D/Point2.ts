@@ -1,8 +1,9 @@
 import { Vector2 } from './Vector2';
 import { Area2 } from './Area2';
+import { IPoint } from '../interfaces/IPoint';
 
 /** Point object in 2D coordinates `(X, Y).` */
-export class Point2 {
+export class Point2 implements IPoint {
 
   /** First component of the point. */
   public x: number;
@@ -38,7 +39,7 @@ export class Point2 {
   */
   public isInsideArea(area: Area2): boolean {
     return ((this.x >= (area.centerPositionX - area.width / 2)) && (this.x <= (area.centerPositionX + area.width / 2)))
-        && ((this.y >= (area.centerPositionY - area.height / 2)) && (this.y <= (area.centerPositionY + area.height / 2)));
+      && ((this.y >= (area.centerPositionY - area.height / 2)) && (this.y <= (area.centerPositionY + area.height / 2)));
   }
 
   /**
@@ -88,12 +89,11 @@ export class Point2 {
   @param maxRadius Radius of the outer circle of the annulus.
   @returns Random `Point2` inside the annulus.
   */
-  public generateRandomPointInsideAnnulus(minRadius: number, maxRadius: number): Point2 {
-    const randomPoint: Point2 = this.generateRandomPointInsideCircle(maxRadius);
-    const isPointValid: boolean = randomPoint.isInsideAnnulus(this, minRadius, maxRadius);
-
-    return (isPointValid)
-      ? randomPoint
-      : this.generateRandomPointInsideAnnulus(minRadius, maxRadius);
+  public generateRandomPoint(minRadius: number, maxRadius: number): Point2 {
+    let randomPoint: Point2;
+    do {
+      randomPoint = this.generateRandomPointInsideCircle(maxRadius);
+    } while (!randomPoint.isInsideAnnulus(this, minRadius, maxRadius));
+    return randomPoint;
   }
 }

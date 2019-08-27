@@ -24,7 +24,7 @@ describe('Point2', () => {
     let testPasses: boolean = true;
 
     for(let i = 0; i < 1000; i +=1 ) {
-      const pointInsideAnnulus: Point2 = pointA.generateRandomPointInsideAnnulus(minRadius, maxRadius);
+      const pointInsideAnnulus: Point2 = pointA.generateRandomPoint(minRadius, maxRadius);
       testPasses = (pointInsideAnnulus.isInsideAnnulus(pointA, minRadius, maxRadius)) ? true : false;
       if(!testPasses) break;
     }
@@ -41,7 +41,7 @@ describe('Point2', () => {
   
     for (let i: number = 0; i < 50; i += 1) {
   
-      const pointInsideArea: Point2 = area.generateRandomPoint2();
+      const pointInsideArea: Point2 = area.generateRandomPoint();
       testPasses = (pointInsideArea.isInsideArea(area)) ? true : false;
       if (!testPasses) break;
   
@@ -50,4 +50,3 @@ describe('Point2', () => {
     expect(testPasses).toEqual(true);
   });
 });
-

@@ -1,23 +1,13 @@
 import { PoissonDiscDistribution } from './poissonDiscDistribution/PoissonDiscDistribution';
 import { Area2 } from './2D/Area2';
+import { Area3 } from './3D/Area3';
 
-const args = process.argv.slice(2);
-if (args.length !== 6) {
-  console.log('Incorrect parameters input. Exiting...');
-  process.exit(1);
-}
+import { Point3 } from './3D/Point3';
 
-const areaWidth = Number(args[0]);
-const areaHeight = Number(args[1]);
-const areaCenterX = Number(args[2]);
-const areaCenterY = Number(args[3]);
-
-const k = Number(args[4]);
-const radius = Number(args[5]);
-
-const area: Area2 = new Area2(areaWidth, areaHeight, areaCenterX, areaCenterY);
-const distribution = PoissonDiscDistribution.generateDistribution(area, k, radius);
+const area: Area3 = new Area3(100, 100, 100, 0, 0, 0);
+const distribution = PoissonDiscDistribution.generateDistribution(area, 3, 5);
 
 for (const sample of distribution) {
-  console.log(`${Math.round(sample.x)},${Math.round(sample.y)}`);
+  const s = sample as Point3;
+  console.log(`${Math.round(s.x)}, ${Math.round(s.y)}, ${Math.round(s.z)}`);
 }

@@ -1,8 +1,9 @@
 import { Point2 } from './Point2';
 import { randomRange } from '../utils/RandomRange';
+import { IArea } from '../interfaces/IArea';
 
 /** Square area in 2D coordinates `(X, Y).` */
-export class Area2 {
+export class Area2 implements IArea {
 
   /** Width of the area. */
   public width: number;
@@ -27,11 +28,11 @@ export class Area2 {
   }
 
   /**
-  *Generates a `Point2` of random `(X,Y)` coordinates inside this area.
+  *Generates a `Point2` of random `(X, Y)` coordinates inside this area.
   @public
   @returns {Point2} Random point inside of the area.
   */
-  public generateRandomPoint2(): Point2 {
+  public generateRandomPoint(): Point2 {
 
     const modulusX: number = (Math.random() <= 0.5) ? -1 : 1;
     const posX: number = this.centerPositionX + (modulusX * randomRange(this.width / 2));

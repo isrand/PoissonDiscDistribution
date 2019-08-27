@@ -1,23 +1,23 @@
-import { Point2 } from '../2D/Point2';
-import { Area2 } from '../2D/Area2';
+import { IPoint } from '../interfaces/IPoint';
+import { IArea } from '../interfaces/IArea';
 import { randomRange } from '../utils/RandomRange';
 
 /**Poisson Disc Distribution class */
 export class PoissonDiscDistribution {
 
-  public static generateDistribution(area: Area2, k: number, radius: number): Point2[] {
+  public static generateDistribution(area: IArea, k: number, radius: number): IPoint[] {
 
-    const firstPoint = area.generateRandomPoint2();
+    const firstPoint = area.generateRandomPoint();
 
-    const activeSamples: Point2[] = [firstPoint];
-    const finalSamples: Point2[] = [firstPoint];
+    const activeSamples: IPoint[] = [firstPoint];
+    const finalSamples: IPoint[] = [firstPoint];
     let i: number;
 
     while (activeSamples.length > 0) {
       i = 0;
-      const sample: Point2 = activeSamples.shift() as Point2;
+      const sample: IPoint = activeSamples.shift() as IPoint;
       while (i < k) {
-        const newSample: Point2 = sample.generateRandomPointInsideAnnulus(radius, radius * 2);
+        const newSample: IPoint = sample.generateRandomPoint(radius, radius * 2);
         if (newSample.isInsideArea(area)) {
           const allDistances = this.calculateDistances(newSample, finalSamples, radius);
           if (allDistances === finalSamples.length) {
@@ -35,7 +35,7 @@ export class PoissonDiscDistribution {
     return finalSamples;
   }
 
-  private static calculateDistances(sample: Point2, allSamples: Point2[], radius: number): number {
+  private static calculateDistances(sample: IPoint, allSamples: IPoint[], radius: number): number {
     let sum = 0;
     for (const s of allSamples) {
       if (sample.distance(s) >= radius) {

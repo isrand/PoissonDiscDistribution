@@ -13,7 +13,7 @@ describe('Area2', () => {
     const area: Area2 = new Area2(400, 400, 0, 0);
 
     for(let i = 0; i < 50; i+=1 ) {
-      const pointInsideArea: Point2 = area.generateRandomPoint2();
+      const pointInsideArea: Point2 = area.generateRandomPoint();
       expect(pointInsideArea.isInsideArea(area)).toEqual(true);
     }
     

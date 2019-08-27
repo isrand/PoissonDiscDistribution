@@ -14,13 +14,4 @@ describe('Vector2', () => {
     expect(vector.magnitude).toEqual(Math.sqrt(20));
   });
   
-  test('should calculate the unit vector correctly', () => {
-    const vector: Vector2 = new Vector2(1, 1);
-    const vectorMagnitude: number = vector.magnitude;
-    const expectedUnitVector: Vector2 = new Vector2(vector.x / vectorMagnitude, vector.y / vectorMagnitude);
-  
-    expect(vector.unitVector()).toEqual(expectedUnitVector);
-  
-  });
-  
 });
