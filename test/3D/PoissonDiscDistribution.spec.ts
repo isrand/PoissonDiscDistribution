@@ -1,12 +1,14 @@
 import { PoissonDiscDistribution } from '../../src/poissonDiscDistribution/PoissonDiscDistribution';
 import { Area2 } from '../../src/2D/Area2';
+import { Area3 } from '../../src/3D/Area3';
 
 describe('PoissonDiscDistribution', () => {
 
-  const area: Area2 = new Area2(100, 100, 0, 0);
+  const area: Area3 = new Area3(50, 50, 50, 0, 0, 0);
+
   const k: number = 10;
   const radius: number = 5;
-  
+
   const distribution = PoissonDiscDistribution.generateDistribution(area, k, radius);
   
   test('should create a distribution correctly', () => {
