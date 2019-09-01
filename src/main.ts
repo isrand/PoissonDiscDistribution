@@ -1,7 +1,6 @@
 import { PoissonDiscDistribution } from './poissonDiscDistribution/PoissonDiscDistribution';
 import { Area2 } from './2D/Area2';
 import { Area3 } from './3D/Area3';
-
 import { Point3 } from './3D/Point3';
 
 const area: Area3 = new Area3(100, 100, 100, 0, 0, 0);

@@ -34,7 +34,7 @@ export class Point2 implements IPoint {
   /**
   *Checks whether or not a point is inside a given area.
   @public
-  @param area Interface that defines the area.
+  @param area Area.
   @returns Boolean indicating the result of the check.
   */
   public isInsideArea(area: Area2): boolean {
@@ -70,7 +70,7 @@ export class Point2 implements IPoint {
   *Generates a random point inside a circular area using this point as the origin of coordinates.
   @public
   @param radius Radius of the circle around the origin of coordinates to be used as the area.
-  @returns Random `Point2` inside the circle.
+  @returns Point2 Point inside the circle.
   */
   public generateRandomPointInsideCircle(radius: number): Point2 {
     const a: number = Math.random() * 2 * Math.PI;

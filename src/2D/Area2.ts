@@ -23,6 +23,7 @@ export class Area2 implements IArea {
   public constructor(width: number, height: number, centerPositionX: number, centerPositionY: number) {
     this.width = width;
     this.height = height;
+
     this.centerPositionX = centerPositionX;
     this.centerPositionY = centerPositionY;
   }

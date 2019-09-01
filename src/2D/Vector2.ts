@@ -9,8 +9,6 @@ export class Vector2 implements IVector {
   public y: number;
   /** Magnitude of the vector (square root of the sum of squared components). */
   public magnitude: number;
-  /** Squared magnitude of the vector (sum of squared components). */
-  public sqMagnitude: number;
 
    /**
   @param x First component of the vector.
@@ -20,7 +18,6 @@ export class Vector2 implements IVector {
     this.x = x;
     this.y = y;
     this.magnitude = this.calculateMagnitude();
-    this.sqMagnitude = Math.pow(this.calculateMagnitude(), 2);
   }
 
   public calculateMagnitude(): number {
