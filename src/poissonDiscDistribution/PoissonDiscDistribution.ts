@@ -1,10 +1,16 @@
 import { IPoint } from '../interfaces/IPoint';
 import { IArea } from '../interfaces/IArea';
-import { randomRange } from '../utils/RandomRange';
 
 /**Poisson Disc Distribution class */
 export class PoissonDiscDistribution {
 
+  /**
+  *Returns a random, uniform distribution of points in either a 2D or 3D space.
+  @public
+  @param area 2D / 3D area inside which the distribution will be generated.
+  @param k Maximum number of dart throws before a sample is discarded (no more samples can be generated around it).
+  @param radius Minimum distance between every point from the distribution.
+  */
   public static generateDistribution(area: IArea, k: number, radius: number): IPoint[] {
 
     const firstPoint = area.generateRandomPoint();

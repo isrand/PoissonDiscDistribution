@@ -23,7 +23,6 @@ export class Point3 implements IPoint {
   *Returns the distance between this point and the given one.
   @public
   @param point Point to check the distance to.
-  @returns Distance between the two points.
   */
   public distance(point: Point3): number {
     const distanceVector: Vector3 = new Vector3(point.x - this.x, point.y - this.y, point.z - this.z);
@@ -35,7 +34,6 @@ export class Point3 implements IPoint {
   *Checks whether or not a point is inside a given area.
   @public
   @param area Area.
-  @returns Boolean indicating the result of the check.
   */
   public isInsideArea(area: Area3): boolean {
     return ((this.x >= (area.centerPositionX - area.width / 2)) && (this.x <= (area.centerPositionX + area.width / 2)))
@@ -48,7 +46,6 @@ export class Point3 implements IPoint {
   @public
   @param origin Origin point that has the volume around it.
   @param radius Radius of the sphere around the original point.
-  @returns Boolean indicating the result of the check.
   */
   public isInsideSphere(origin: Point3, radius: number): boolean {
     return this.distance(origin) <= radius;
@@ -60,7 +57,6 @@ export class Point3 implements IPoint {
   @param origin Original point that has the spherical shell around it.
   @param minRadius Radius of the inner sphere of the shell.
   @param maxRadius Radius of the outer sphere of the shell.
-  @returns Boolean indicating the result of the check.
   */
   public isInsideSphericalShell(origin: Point3, minRadius: number, maxRadius: number): boolean {
     return !this.isInsideSphere(origin, minRadius) &&
@@ -71,7 +67,6 @@ export class Point3 implements IPoint {
   *Generates a random point inside a spherical volume using this point as the origin of coordinates.
   @public
   @param radius Radius of the sphere around the origin of coordinates to be used as the volume.
-  @returns Point3 Point inside the circle.
   */
   public generateRandomPointInsideSphere(radius: number): Point3 {
     const theta = randomRange(Math.PI * 2);
@@ -90,7 +85,6 @@ export class Point3 implements IPoint {
   @public
   @param minRadius Radius of the inner sphere of the shell.
   @param maxRadius Radius of the outer sphere of the shell.
-  @returns Point3 Point inside the spherical shell.
   */
   public generateRandomPoint(minRadius: number, maxRadius: number): Point3 {
     let randomPoint: Point3;

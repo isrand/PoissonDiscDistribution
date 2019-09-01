@@ -23,7 +23,6 @@ export class Point2 implements IPoint {
   *Returns the distance between this point and the given one.
   @public
   @param point Point to check the distance to.
-  @returns Distance between the two points.
   */
   public distance(point: Point2): number {
     const distanceVector: Vector2 = new Vector2(point.x - this.x, point.y - this.y);
@@ -35,7 +34,6 @@ export class Point2 implements IPoint {
   *Checks whether or not a point is inside a given area.
   @public
   @param area Area.
-  @returns Boolean indicating the result of the check.
   */
   public isInsideArea(area: Area2): boolean {
     return ((this.x >= (area.centerPositionX - area.width / 2)) && (this.x <= (area.centerPositionX + area.width / 2)))
@@ -47,7 +45,6 @@ export class Point2 implements IPoint {
   @public
   @param origin Origin point that has the area around it.
   @param radius Radius of the area around the original point.
-  @returns Boolean indicating the result of the check.
   */
   public isInsideCircle(origin: Point2, radius: number): boolean {
     return this.distance(origin) <= radius;
@@ -59,7 +56,6 @@ export class Point2 implements IPoint {
   @param origin Original point that has the annulus around it.
   @param minRadius Radius of the inner circle of the annulus.
   @param maxRadius Radius of the outer circle of the annulus.
-  @returns Boolean indicating the result of the check.
   */
   public isInsideAnnulus(origin: Point2, minRadius: number, maxRadius: number): boolean {
     return !this.isInsideCircle(origin, minRadius) &&
@@ -70,7 +66,6 @@ export class Point2 implements IPoint {
   *Generates a random point inside a circular area using this point as the origin of coordinates.
   @public
   @param radius Radius of the circle around the origin of coordinates to be used as the area.
-  @returns Point2 Point inside the circle.
   */
   public generateRandomPointInsideCircle(radius: number): Point2 {
     const a: number = Math.random() * 2 * Math.PI;
@@ -87,7 +82,6 @@ export class Point2 implements IPoint {
   @public
   @param minRadius Radius of the inner circle of the annulus.
   @param maxRadius Radius of the outer circle of the annulus.
-  @returns Random `Point2` inside the annulus.
   */
   public generateRandomPoint(minRadius: number, maxRadius: number): Point2 {
     let randomPoint: Point2;

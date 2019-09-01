@@ -31,7 +31,6 @@ export class Area2 implements IArea {
   /**
   *Generates a `Point2` of random `(X, Y)` coordinates inside this area.
   @public
-  @returns {Point2} Random point inside of the area.
   */
   public generateRandomPoint(): Point2 {
 
