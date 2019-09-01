@@ -1,9 +1,10 @@
 # Poisson Disc Distribution
 
-
-A simple implementation of the Poisson Disc Distribution in TypeScript that creates a random, uniform distribution of blue noise.
-
 ![Poisson Disc Distribution](img/PDD.png)
+
+
+
+This implementation allows for the creation of a uniform, random distribution of points in either a 2D (left) or 3D (right) space.
 
 ### Complexity analysis
 
