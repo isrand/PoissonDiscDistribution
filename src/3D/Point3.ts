@@ -85,7 +85,6 @@ export class Point3 implements IPoint {
     return new Point3(x, y, z);
   }
 
-
   /**
   *Returns a new random point inside the given spherical shell.
   @public
