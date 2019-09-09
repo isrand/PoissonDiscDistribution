@@ -48,6 +48,7 @@ export class PoissonDiscDistribution {
         sum += 1;
       }
     }
+
     return sum;
   }
 }
