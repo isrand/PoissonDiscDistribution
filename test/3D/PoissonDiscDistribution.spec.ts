@@ -24,7 +24,7 @@ describe('PoissonDiscDistribution', () => {
   });
 
   test('should create a distribution in which all points are contained in the defined area', () => {
-    for (let sample of distribution) {
+    for (const sample of distribution) {
       expect(sample.isInsideArea(area)).toEqual(true);
     }
   });
