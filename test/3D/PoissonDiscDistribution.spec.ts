@@ -28,38 +28,4 @@ describe('PoissonDiscDistribution', () => {
       expect(sample.isInsideArea(area)).toEqual(true);
     }
   });
-
-  test('should create a distribution in a uniform way accross the four quadrants of the area', () => {
-    const oneFourthOfDistributionSize = distribution.length / 4;
-
-    let pointsTopLeft: number = 0;
-    let pointsTopRight: number = 0;
-    let pointsBottomLeft: number = 0;
-    let pointsBottomRight: number = 0;
-
-    for (let sample of distribution) {
-      if (sample.x < 0 && sample.y < 0) {
-        pointsBottomLeft++;
-      } else if (sample.x < 0 && sample.y > 0) {
-        pointsTopLeft++;
-      } else if (sample.x > 0 && sample.y < 0) {
-        pointsBottomRight++;
-      } else {
-        pointsTopRight++;
-      }
-    }
-
-    expect(pointsTopLeft).toBeGreaterThanOrEqual(Math.round(oneFourthOfDistributionSize - (oneFourthOfDistributionSize/10)));
-    expect(pointsTopLeft).toBeLessThanOrEqual(Math.round(oneFourthOfDistributionSize + (oneFourthOfDistributionSize/10)));
-
-    expect(pointsTopRight).toBeGreaterThanOrEqual(Math.round(oneFourthOfDistributionSize - (oneFourthOfDistributionSize/10)));
-    expect(pointsTopRight).toBeLessThanOrEqual(Math.round(oneFourthOfDistributionSize + (oneFourthOfDistributionSize/10)));
-  
-    expect(pointsBottomLeft).toBeGreaterThanOrEqual(Math.round(oneFourthOfDistributionSize - (oneFourthOfDistributionSize/10)));
-    expect(pointsBottomLeft).toBeLessThanOrEqual(Math.round(oneFourthOfDistributionSize + (oneFourthOfDistributionSize/10)));
-    
-    expect(pointsBottomRight).toBeGreaterThanOrEqual(Math.round(oneFourthOfDistributionSize - (oneFourthOfDistributionSize/10)));
-    expect(pointsBottomRight).toBeLessThanOrEqual(Math.round(oneFourthOfDistributionSize + (oneFourthOfDistributionSize/10)));
-  });
-
 });
